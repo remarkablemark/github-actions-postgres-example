@@ -25,6 +25,6 @@ jobs:
           apt-get update
           apt-get install --yes postgresql-client
       - name: Query database
-        run: psql -h postgres -U postgres_user -c 'SELECT 1;'
+        run: psql -h postgres -d postgres_db -U postgres_user -c 'SELECT 1;'
         env:
           PGPASSWORD: postgres_password
