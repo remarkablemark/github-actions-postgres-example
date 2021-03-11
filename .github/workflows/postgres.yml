@@ -8,11 +8,11 @@ jobs:
       postgres:
         image: postgres:latest
         env:
-          POSTGRES_DB: postgres
-          POSTGRES_HOST: postgres
-          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: postgres_db
+          POSTGRES_HOST: postgres_host
+          POSTGRES_PASSWORD: postgres_password
           POSTGRES_PORT: 5432
-          POSTGRES_USER: postgres
+          POSTGRES_USER: postgres_user
         ports:
           - 5432:5432
         options: >-
@@ -26,6 +26,6 @@ jobs:
           apt-get update
           apt-get install --yes postgresql-client
       - name: Query database
-        run: psql -h postgres -U postgres -c 'SELECT 1;'
+        run: psql -h postgres_host -U postgres_user -c 'SELECT 1;'
         env:
-          PGPASSWORD: postgres
+          PGPASSWORD: postgres_password
