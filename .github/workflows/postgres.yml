@@ -9,7 +9,6 @@ jobs:
         image: postgres:latest
         env:
           POSTGRES_DB: postgres_db
-          POSTGRES_HOST: postgres_host
           POSTGRES_PASSWORD: postgres_password
           POSTGRES_PORT: 5432
           POSTGRES_USER: postgres_user
@@ -26,6 +25,6 @@ jobs:
           apt-get update
           apt-get install --yes postgresql-client
       - name: Query database
-        run: psql -h postgres_host -U postgres_user -c 'SELECT 1;'
+        run: psql -h postgres -U postgres_user -c 'SELECT 1;'
         env:
           PGPASSWORD: postgres_password
