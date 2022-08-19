@@ -24,7 +24,9 @@ jobs:
         run: |
           apt-get update
           apt-get install --yes postgresql-client
+      - uses: actions/checkout@v1
+        working-directory: ./scripts
       - name: Query database
-        run: psql -h ${{ secrets.DB_HOST }} -d ${{ secrets.POSTGRES_DB }} -U ${{ secrets.POSTGRES_USER }} -p 25060 -f scripts/test.sql
+        run: psql -h ${{ secrets.DB_HOST }} -d ${{ secrets.POSTGRES_DB }} -U ${{ secrets.POSTGRES_USER }} -p 25060 -f test.sql
         env:
           PGPASSWORD: ${{ secrets.PGPASSWORD }}
