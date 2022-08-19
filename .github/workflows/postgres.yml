@@ -1,8 +1,5 @@
 name: PostgreSQL
-on:
-  pull_request:
-    branches:
-    - mastet
+on: push
 jobs:
   postgres:
     runs-on: ubuntu-latest
